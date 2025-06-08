@@ -20,6 +20,9 @@ export default {
     ],
     'subject-case': [2, 'never', ['start-case', 'pascal-case', 'upper-case']],
     'subject-max-length': [2, 'always', 72],
-    'body-max-line-length': [2, 'always', 100],
   },
+  ignores: [
+    (commit) => commit.includes('[skip ci]'),
+    (commit) => commit.includes('chore(release):'),
+  ],
 };
