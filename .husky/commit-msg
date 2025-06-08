@@ -1,1 +1,10 @@
-npx --no -- commitlint --edit $1
+#!/usr/bin/env sh
+
+# Пропускаем проверку для release коммитов
+if echo "$1" | grep -q "chore(release):.*\[skip ci\]"; then
+  echo "Skipping commitlint for release commit"
+  exit 0
+fi
+
+# Обычная проверка commitlint
+npx --no -- commitlint --edit "$1"
