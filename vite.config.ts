@@ -8,5 +8,10 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     css: true,
+    passWithNoTests: true, // Не падать если нет тестов
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+      exclude: ['node_modules/', 'src/test/', '**/*.config.*', '**/*.d.ts'],
+    },
   },
 });
